@@ -1,0 +1,45 @@
++ module load bioinfo-tools Picard-tools/2.4.1
+++ /mnt/picea/Modules/3.2.10/bin/modulecmd bash load bioinfo-tools Picard-tools/2.4.1
++ eval
++ for bam in '/mnt/picea/projects/spruce/htuominen/spruce-wood-cross-section/STAR/all_bam/*STAR.bam'
+++ basename /mnt/picea/projects/spruce/htuominen/spruce-wood-cross-section/STAR/all_bam/T1-01_sortmerna_trimmomatic_STAR.bam
++ basename=T1-01_sortmerna_trimmomatic_STAR.bam
++ java -jar /mnt/picea/Modules/apps/bioinfo/picard/2.4.1/picard.jar CollectInsertSizeMetrics I=/mnt/picea/projects/spruce/htuominen/spruce-wood-cross-section/STAR/all_bam/T1-01_sortmerna_trimmomatic_STAR.bam O=/mnt/picea/home/david/spruce_wood/picard/insert_size_metricsT1-01_sortmerna_trimmomatic_STAR.bam.txt H=/mnt/picea/home/david/spruce_wood/picard/insert_size_histogramT1-01_sortmerna_trimmomatic_STAR.bam.pdf
+[Mon Sep 12 16:24:52 CEST 2016] picard.analysis.CollectInsertSizeMetrics HISTOGRAM_FILE=/mnt/picea/home/david/spruce_wood/picard/insert_size_histogramT1-01_sortmerna_trimmomatic_STAR.bam.pdf INPUT=/mnt/picea/projects/spruce/htuominen/spruce-wood-cross-section/STAR/all_bam/T1-01_sortmerna_trimmomatic_STAR.bam OUTPUT=/mnt/picea/home/david/spruce_wood/picard/insert_size_metricsT1-01_sortmerna_trimmomatic_STAR.bam.txt    DEVIATIONS=10.0 MINIMUM_PCT=0.05 METRIC_ACCUMULATION_LEVEL=[ALL_READS] INCLUDE_DUPLICATES=false ASSUME_SORTED=true STOP_AFTER=0 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
+[Mon Sep 12 16:24:52 CEST 2016] Executing as david@watson on Linux 4.4.0-28-generic amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_25-b17; Picard version: 2.4.1(7c4d36e011df1aec4689b51efcada44e92d1817f_1464389670) JdkDeflater
+INFO	2016-09-12 16:25:14	SinglePassSamProgram	Processed     1,000,000 records.  Elapsed time: 00:00:09s.  Time for last 1,000,000:    9s.  Last read position: MA_10433208:11,847
+INFO	2016-09-12 16:25:22	SinglePassSamProgram	Processed     2,000,000 records.  Elapsed time: 00:00:17s.  Time for last 1,000,000:    7s.  Last read position: MA_162506:495
+INFO	2016-09-12 16:25:27	SinglePassSamProgram	Processed     3,000,000 records.  Elapsed time: 00:00:22s.  Time for last 1,000,000:    4s.  Last read position: MA_38420:1,848
+INFO	2016-09-12 16:25:32	SinglePassSamProgram	Processed     4,000,000 records.  Elapsed time: 00:00:28s.  Time for last 1,000,000:    5s.  Last read position: MA_99855:7,759
+INFO	2016-09-12 16:25:37	SinglePassSamProgram	Processed     5,000,000 records.  Elapsed time: 00:00:32s.  Time for last 1,000,000:    4s.  Last read position: MA_209785:381
+INFO	2016-09-12 16:25:43	SinglePassSamProgram	Processed     6,000,000 records.  Elapsed time: 00:00:38s.  Time for last 1,000,000:    5s.  Last read position: Combined_02:26,853,744
+INFO	2016-09-12 16:25:48	SinglePassSamProgram	Processed     7,000,000 records.  Elapsed time: 00:00:43s.  Time for last 1,000,000:    5s.  Last read position: Combined_04:491,244,327
+INFO	2016-09-12 16:25:52	SinglePassSamProgram	Processed     8,000,000 records.  Elapsed time: 00:00:47s.  Time for last 1,000,000:    4s.  Last read position: Combined_07:173,874,543
+INFO	2016-09-12 16:25:56	SinglePassSamProgram	Processed     9,000,000 records.  Elapsed time: 00:00:52s.  Time for last 1,000,000:    4s.  Last read position: Combined_12:22,392,667
+INFO	2016-09-12 16:25:57	RExecutor	Executing R script via command: Rscript /tmp/david/script8261865311265662215.R /mnt/picea/home/david/spruce_wood/picard/insert_size_metricsT1-01_sortmerna_trimmomatic_STAR.bam.txt /mnt/picea/home/david/spruce_wood/picard/insert_size_histogramT1-01_sortmerna_trimmomatic_STAR.bam.pdf T1-01_sortmerna_trimmomatic_STAR.bam
+[Mon Sep 12 16:25:57 CEST 2016] picard.analysis.CollectInsertSizeMetrics done. Elapsed time: 1.08 minutes.
+Runtime.totalMemory()=5840568320
+To get help, see http://broadinstitute.github.io/picard/index.html#GettingHelp
+Exception in thread "main" htsjdk.samtools.SAMException: Unexpected exception executing [Rscript /tmp/david/script8261865311265662215.R /mnt/picea/home/david/spruce_wood/picard/insert_size_metricsT1-01_sortmerna_trimmomatic_STAR.bam.txt /mnt/picea/home/david/spruce_wood/picard/insert_size_histogramT1-01_sortmerna_trimmomatic_STAR.bam.pdf T1-01_sortmerna_trimmomatic_STAR.bam]
+	at htsjdk.samtools.util.ProcessExecutor.execute(ProcessExecutor.java:111)
+	at htsjdk.samtools.util.ProcessExecutor.execute(ProcessExecutor.java:87)
+	at picard.util.RExecutor.executeFromFile(RExecutor.java:78)
+	at picard.util.RExecutor.executeFromClasspath(RExecutor.java:59)
+	at picard.analysis.CollectInsertSizeMetrics.finish(CollectInsertSizeMetrics.java:164)
+	at picard.analysis.SinglePassSamProgram.makeItSo(SinglePassSamProgram.java:157)
+	at picard.analysis.SinglePassSamProgram.doWork(SinglePassSamProgram.java:77)
+	at picard.cmdline.CommandLineProgram.instanceMain(CommandLineProgram.java:209)
+	at picard.cmdline.PicardCommandLine.instanceMain(PicardCommandLine.java:95)
+	at picard.cmdline.PicardCommandLine.main(PicardCommandLine.java:105)
+Caused by: java.io.IOException: Cannot run program "Rscript": error=2, No such file or directory
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at java.lang.Runtime.exec(Runtime.java:485)
+	at htsjdk.samtools.util.ProcessExecutor.execute(ProcessExecutor.java:102)
+	... 9 more
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.lang.UNIXProcess.forkAndExec(Native Method)
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:187)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:134)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	... 12 more
